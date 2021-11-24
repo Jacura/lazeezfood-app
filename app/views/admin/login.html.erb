@@ -1,0 +1,20 @@
+<div class="container">
+<h2 class="display-4"> Admin Area </h2>
+
+<p style="color:red"><%= flash[:notice] %></p>
+
+<%= form_with url:"/admin/login", local: true,method: :post do |form| %>
+    <div class="field">
+       <%= form.label :username %>
+       <%= form.text_field :username %>
+    </div>
+    <div class="field">
+     <%= form.label :password %>
+     <%= form.password_field :password %>
+    </div>
+    <div class="actions">
+     <%= form.submit "Login"%>
+    </div>
+<% end %>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="container" >
+<% unless cart.line_items.empty? %>
+<h2>Your Cart</h2>
+<table class="table table-dark">
+<thead class="thead-dark">
+<tr>
+  <th scope="col">Quantity</th>
+  <th scope="col">Dish</th>
+  <th scope="col">Price</th>
+   
+</tr>
+</thead>
+	<%= render(cart.line_items) %>
+	<tr>
+		<td colspan="2">Total</td>
+		<td class="total_cell"><%= (cart.total_price)  %></td>
+	</tr>
+</table>
+
+<% session[:amount] = cart.total_price %>
+<%= button_to 'Empty Cart',  cart, :method => :delete, class: "btn btn-secondary btn-lg btn-block",:confirm => 'Are you sure?' %>
+<br>
+<p>
+<div >
+	<%= link_to "Continue Shopping",:controller=>"gallery",:action=>"index"  %> </div> 
+	<div>
+	<% if user_signed_in? %>
+     <%= link_to "Checkout" ,:controller=>"gallery",:action=>"checkout" %>
+	<% else %>
+	 <%= link_to "Checkout", new_user_session_path %>
+	<% end %>
+	</div>
+</p>
+<br>
+<% end %>
+</div>

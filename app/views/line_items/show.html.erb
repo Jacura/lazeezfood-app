@@ -1,0 +1,22 @@
+<div class="container" style="background-image:url(https://image.shutterstock.com/image-vector/vector-white-ball-abstract-background-260nw-1728421882.jpg);background-repeat: no-repeat, repeat;background-size: cover;">
+<p id="notice"><%= notice %></p>
+
+<p style="color:red;font-size:30px">
+  <strong>Quantity:</strong>
+  <%= @line_item.quantity %>
+</p>
+<br>
+
+<p style="color:red;font-size:30px">
+  <strong>Cart:</strong>
+  <%= @line_item.cart_id %>
+</p>
+<br>
+<p style="color:red;font-size:30px">
+  <strong>Store:</strong>
+  <%= @line_item.store_id %>
+</p>
+<br>
+<%= link_to 'Edit', edit_line_item_path(@line_item) , class: "btn btn-secondry" %> |
+<%= link_to 'Back', line_items_path ,class: "btn btn-secondry" %>
+</div>

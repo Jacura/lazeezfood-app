@@ -1,0 +1,62 @@
+ 
+<div class="container" style="padding-left:700px">
+<%= form_with url: "/gallery/search", local: true , class: "form-inline my-2 my-lg-0" , method: :get do |form| %>
+  
+    <%= form.text_field :search  , class: "form-control mr-sm-2"%>
+    <%= form.submit "Search" , class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>
+</div>
+
+<div  class="container" >
+<br>
+<br>
+<div>
+
+
+ 
+
+ 
+<table>
+<tr>
+<% count=0 %>
+<% @food_store.each do |recipe|%>
+<% if (count % 3) == 0%>
+</tr>
+<tr>
+<% end %>
+ 
+
+<% count+=1 %>
+<td> 
+
+<div class="col-md-50 md-margin-bottom-40" style="margin-left:50px">
+<div class="card">
+    <div class="card-image">
+         <%= image_tag recipe.recipe_image ,:height=>"100",:width=>"100" , class: "img-responsive" %>
+          
+        <span class="card-title"><%= recipe.recipe_name %></span>
+    </div>
+    <div class="card-content">
+        <p>
+        <%= recipe.recipe_description %>
+        </p>
+        <br>
+        <p>
+        <b>Recipe Calories :</b> <%= recipe.recipe_calories %><br />
+        <b>Recipe Price : </b> <%= recipe.recipe_price %>
+        </p>
+        <br>
+        <%= button_to 'Add to Cart', line_items_path(:store_id => recipe.id) , class: "btn btn-secondary btn-lg btn-block" %> 
+    </div>
+</div>        
+</div>
+<% end %>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+
+

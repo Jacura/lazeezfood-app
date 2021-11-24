@@ -1,0 +1,10 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<%= render @cart %>
+
+<div class="container">
+<%= link_to 'Edit', edit_cart_path(@cart),class: "btn btn-primary" %> |
+<%= link_to 'Back', carts_path ,class: "btn btn-primary" %>
+</div>
+</div>

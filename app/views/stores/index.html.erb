@@ -1,0 +1,44 @@
+<div style="background-image:url(https://i.pinimg.com/originals/29/ba/f6/29baf6a1fe8325f5789cb83213048d4b.jpg);background-repeat: no-repeat, repeat;background-size: cover;">
+<p id="notice"><%= notice %></p>
+ 
+ 
+<p class="display-4">Recipe Store</p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe name</th>
+      <th>Recipe description</th>
+      <th>Recipe calories</th>
+      <th>Recipe price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <th style="font-size:16px"><%= store.recipe_name %></th>
+        <td style="font-size:16px"><%= store.recipe_description %></td>
+        <td style="font-size:16px"><%= store.recipe_calories %></td>
+        <td style="font-size:16px"><%= store.recipe_price %></td>
+        <td style="font-size:16px"><%= link_to 'Show', store %></td>
+        <% if  session[:admin] == "admin" %>
+         <td style="font-size:16px"><%= link_to 'Edit', edit_store_path(store) %></td>
+        <td style="font-size:16px"><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+ 
+
+<br>
+<% if  session[:admin] == "admin" %>
+ <%= link_to 'New Store', new_store_path %>
+<% end %>
+ 
+</div>

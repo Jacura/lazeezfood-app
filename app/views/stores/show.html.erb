@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+ 
+<div class="card" style="width:3rem;border:none;margin-left:300px">
+     <%= image_tag(@store.recipe_image) if @store.recipe_image.attached? %>
+</div>
+ 
+
+<p>
+  <strong>Recipe name:</strong>
+  <%= @store.recipe_name %>
+</p>
+
+<p>
+  <strong>Recipe description:</strong>
+  <%= @store.recipe_description %>
+</p>
+
+<p>
+  <strong>Recipe calories:</strong>
+  <%= @store.recipe_calories %>
+</p>
+
+<p>
+  <strong>Recipe price:</strong>
+  <%= @store.recipe_price %>
+</p>
+
+<% if  session[:admin] == "admin" %>
+ <%= link_to 'Edit', edit_store_path(@store) %> |
+<% end %>
+<%= link_to 'Back', stores_path %>
